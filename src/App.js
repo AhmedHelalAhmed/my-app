@@ -1,44 +1,30 @@
-import React, { Component } from "react";
-import Header from "./Header";
+import React, { useState } from "react";
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      counter: 0,
-    };
-    this.decreament = this.decreament.bind(this);
+export default function App() {
+  const [counter, setCounter] = useState(0);
+
+  function increament() {
+    setCounter(counter + 1);
   }
 
-  increament = () => {
-    this.setState({
-      counter: this.state.counter + 1,
-    });
-  };
-
-  decreament() {
-    this.setState({
-      counter: this.state.counter - 1,
-    });
+  function decreament() {
+    setCounter(counter - 1);
   }
-  render() {
-    return (
-      <div className="container text-center pt-5">
-        <br />
 
-        <button className="btn btn-primary mt-3" onClick={this.increament}>
-          Increament
-        </button>
-        <br />
+  return (
+    <div className="container text-center pt-5">
+      <br />
 
-        <button className="btn btn-primary mt-3" onClick={this.decreament}>
-          Decreament
-        </button>
-        <br />
-        <Header header="Ahmed" />
-        <br />
-        <h1 className="mt-3">{this.state.counter}</h1>
-      </div>
-    );
-  }
+      <button className="btn btn-primary mt-3" onClick={increament}>
+        Increament
+      </button>
+      <br />
+
+      <button className="btn btn-primary mt-3" onClick={decreament}>
+        Decreament
+      </button>
+      <br />
+      <h1 className="mt-3">{counter}</h1>
+    </div>
+  );
 }
