@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function App() {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = React.useState(0);
 
   function increament() {
     setCounter(counter + 1);
